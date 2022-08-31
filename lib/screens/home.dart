@@ -23,7 +23,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: title),
+        appBar: AppBar(
+          title: title,
+          actions: [
+            IconButton(onPressed: _goToAddLanguage, icon: const Icon(Icons.add))
+          ],
+        ),
         body: Column(
           children: [
             Wrap(spacing: 10, children: buildChoices()),
@@ -33,6 +38,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ))
           ],
         ));
+  }
+
+  void _goToAddLanguage() {
+    Future future = Navigator.pushNamed(context, "/add");
+    future.then((language) => setState(() {
+          languages.add(language);
+        }));
   }
 
   List<Widget> buildChoices() {

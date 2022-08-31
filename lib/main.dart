@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:states_widgets_routes/screens/add.dart';
 import 'package:states_widgets_routes/screens/home.dart';
 
 void main() {
@@ -11,11 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: "/",
+        routes: {
+          "/": (context) => const MyHomePage(),
+          "/add": (context) => AddLanguage(),
+        });
   }
 }
